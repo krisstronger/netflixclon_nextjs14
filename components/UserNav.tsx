@@ -10,22 +10,10 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { signIn, signOut, useSession, getProviders  } from "next-auth/react";
-import { useEffect, useState } from "react";
+import { signOut } from "next-auth/react";
 
 export default function UserNav() {
-  const { data: session } = useSession();
-  const [providers, setProviders] = useState(null);
 
-  useEffect(() => {
-    (async () => {
-      const res = await getProviders();
-      setProviders(res);
-    })();
-
-    console.log("session?.user", session?.user);
-  }, []);
-  
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
